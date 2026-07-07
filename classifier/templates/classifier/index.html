@@ -1,0 +1,40 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Text Classification</title>
+
+    <link rel="stylesheet" href="{% static 'classifier/style.css' %}">
+</head>
+
+<body>
+
+    <h1>Text Classification System</h1>
+
+    <form method="POST">
+
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <button type="submit">
+            Predict
+        </button>
+
+    </form>
+
+    {% if prediction %}
+    <div class="result">
+
+        <h2>Predicted Category</h2>
+
+        <h3>{{ prediction }}</h3>
+
+    </div>
+    {% endif %}
+
+</body>
+
+</html>
